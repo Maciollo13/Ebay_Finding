@@ -32,3 +32,4 @@ def send_email():
     text = msg.as_string()
     s.sendmail(fromaddr, toaddr, text)
     s.quit()
+    print("e-mail sent succesfully!")

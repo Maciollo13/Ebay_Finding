@@ -3,6 +3,7 @@ from send_email import send_email
 from ebaysdk.finding import Connection as Finding
 from ebaysdk.exception import ConnectionError
 from search import d1
+import csv
 
 
 keyword = d1["keywords"]
@@ -23,8 +24,12 @@ def get_result():
 
 def main():
     api_result, description = get_result()
+    #for i in description:
+    #    print(*i)
     with open("result.csv","w+",encoding="UTF-8") as fopen:
-        fopen.write(str(*description))    send_email()
+        writer = csv.writer(fopen)
+        writer.writerow(description)
+    send_email()
 
 
 if __name__ == "__main__":
