@@ -6,7 +6,7 @@ from search import d1
 import csv
 
 
-keyword = d1["keywords"]
+
 def get_result():
     list_of_items = []
     try:
@@ -26,9 +26,11 @@ def main():
     api_result, description = get_result()
     #for i in description:
     #    print(*i)
+    print(api_result)
     with open("result.csv","w+",encoding="UTF-8") as fopen:
         writer = csv.writer(fopen)
-        writer.writerow(description)
+        for i in description:
+            writer.writerow(i)
     send_email()
 
 
