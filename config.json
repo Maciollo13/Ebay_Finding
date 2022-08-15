@@ -2,6 +2,6 @@
   "api_key": "Your API Key goes there",
   "sending_user_email": "Your email goes there",
   "sending_user_app_password": "Your app key goes there",
-  "receiving_user_email" : "reciving user mail goes here"
+  "receiving_user_email" : "receiving user mail goes here"
 
 }
