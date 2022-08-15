@@ -29,7 +29,12 @@ def get_search():
         d1["categoryId"] = int(input("Type in the category Id. If you dont know the Id type \"None\": "))
     except ValueError:
         pass
-    d1["paginationInput"] = {"entriesPerPage" : int(input("Type number of entries per page: ")), "pageNumber": int(input("Type page number: "))}
+    while True:
+        try:
+            d1["paginationInput"] = {"entriesPerPage" : int(input("Type number of entries per page: ")), "pageNumber": int(input("Type page number: "))}
+            break
+        except ValueError:
+            print("Number must be integer. Try again.")
     d1["itemFilter"] = {"name": "LocatedIn", "value" : input("Type country to search in: ")}
     d1["sortOrder"] = ["PricePlusShippingLowest", "StartTimeNewest"]
     return d1
@@ -37,8 +42,6 @@ def get_search():
 
 def main():
     api_result, description = get_result()
-    #for i in description:
-    #    print(*i)
     with open("result.csv","w+",encoding="UTF-8") as fopen:
         writer = csv.writer(fopen)
         for i in description:
